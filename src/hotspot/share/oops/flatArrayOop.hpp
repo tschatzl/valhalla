@@ -63,6 +63,7 @@ class flatArrayOopDesc : public objArrayOopDesc {
 
   int object_size(int lh) const;
 
+  bool contains_oops() const;
 };
 
 // See similar requirement for oopDesc.

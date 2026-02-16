@@ -50,6 +50,11 @@ inline int flatArrayOopDesc::object_size(int lh) const {
   return object_size(lh, length());
 }
 
+inline bool flatArrayOopDesc::contains_oops() const {
+  FlatArrayKlass* faklass = FlatArrayKlass::cast(klass());
+  return faklass->contains_oops();
+}
+
 inline oop flatArrayOopDesc::obj_at(int index) const {
   EXCEPTION_MARK;
   return obj_at(index, THREAD);

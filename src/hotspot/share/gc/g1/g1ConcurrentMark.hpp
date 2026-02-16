@@ -830,6 +830,7 @@ private:
   // mark bitmap scan, and so needs to be pushed onto the mark stack.
   bool is_below_finger(oop obj, HeapWord* global_finger) const;
 
+  static bool array_can_be_processed_immediately(oop obj);
   template<bool scan> void process_grey_task_entry(G1TaskQueueEntry task_entry, bool stolen);
 
   static bool should_be_sliced(oop obj);

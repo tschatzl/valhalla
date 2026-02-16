@@ -1231,6 +1231,10 @@ public:
   // requires.
   static size_t humongous_obj_size_in_regions(size_t word_size);
 
+  // Returns whether the given object is guaranteed to definitely have no references
+  // in its body. A false result indicates the object may or may not have references.
+  inline static bool obj_has_no_references(oop obj);
+
   // Returns how much space in bytes an allocation of word_size will use up in the
   // heap.
   static size_t allocation_used_bytes(size_t word_size);
