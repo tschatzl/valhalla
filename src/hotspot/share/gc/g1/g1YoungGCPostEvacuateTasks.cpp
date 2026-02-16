@@ -394,7 +394,7 @@ public:
       ResourceMark rm;
       bool allocated_after_mark_start = r->bottom() == _g1h->concurrent_mark()->top_at_mark_start(r);
       bool mark_in_progress = _g1h->collector_state()->mark_in_progress();
-      guarantee(G1CollectedHeap::obj_has_no_references(obj) || (allocated_after_mark_start || !mark_in_progress),
+      guarantee(G1CollectedHeap::obj_has_no_oops(obj) || (allocated_after_mark_start || !mark_in_progress),
                 "Only eagerly reclaiming primitive arrays is supported, other humongous objects only if allocated after mark start, but the object "
                 PTR_FORMAT " (%s) is not (allocated after mark: %d mark in progress %d).",
                 p2i(r->bottom()), obj->klass()->name()->as_C_string(), allocated_after_mark_start, mark_in_progress);

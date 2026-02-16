@@ -109,7 +109,7 @@ inline G1HeapRegion* G1CollectedHeap::region_at(uint index) const { return _hrm.
 // Return the region with the given index, or null if unmapped. It assumes the index is valid.
 inline G1HeapRegion* G1CollectedHeap::region_at_or_null(uint index) const { return _hrm.at_or_null(index); }
 
-inline bool G1CollectedHeap::obj_has_no_references(oop obj) {
+inline bool G1CollectedHeap::obj_has_no_oops(oop obj) {
   if (obj->is_typeArray()) {
     return true;
   }

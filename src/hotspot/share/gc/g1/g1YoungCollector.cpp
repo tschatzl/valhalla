@@ -387,7 +387,7 @@ class G1PrepareEvacuationTask : public WorkerTask {
       //
       // After the pause, having reclaimed h, obviously the mutator can't fetch
       // the reference from h any more.
-      if (!G1CollectedHeap::obj_has_no_references(obj)) {
+      if (!G1CollectedHeap::obj_has_no_oops(obj)) {
         // All regions that were allocated before marking have a TAMS != bottom.
         bool allocated_before_mark_start = region->bottom() != _g1h->concurrent_mark()->top_at_mark_start(region);
         bool mark_in_progress = _g1h->collector_state()->mark_in_progress();
